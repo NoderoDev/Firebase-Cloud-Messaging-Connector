@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_1779k9l" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.14.0" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.2.0">
+  <bpmn:process id="ConnectorTest" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>Flow_1amal4j</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="Flow_1amal4j" sourceRef="StartEvent_1" targetRef="connectorTest" />
+    <bpmn:endEvent id="Event_0m3aamh">
+      <bpmn:incoming>Flow_0lzeipd</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_0lzeipd" sourceRef="connectorTest" targetRef="Event_0m3aamh" />
+    <bpmn:serviceTask id="connectorTest" name="Connector Test" zeebe:modelerTemplate="febf0a0f-5cb0-4956-a496-21be0452ada5">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="connectorTest" />
+        <zeebe:ioMapping>
+          <zeebe:input source="106225938488515698599" target="client_oid" />
+          <zeebe:input source="service_account" target="type" />
+          <zeebe:input source="camunda-connector-526e0" target="project_id" />
+          <zeebe:input source="ebbaab34d441a89524d19ef42abafe0328be51f0" target="private_key_id" />
+          <zeebe:input source="-----BEGIN PRIVATE KEY----- MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC0Er1v8fS10vPY +3gZGNk64wZydiHc8YAttZHc94WoqhtPRos/+avft2ZK7+VRsGXqvWpuz86tiRgS gKnomXUaw3Vfn7Slvsj220wrKN4lDcg+i5zicP9OGjti5VeUXRs+NZBes286SarF RwDoTMxiuFFmAvgKeGxq8gF/t2iGuFAstNYQF9TWDQuDHnbT5bAEr//GSnVBcY3s CN0yuyE8rEwpkZvLngWl+JBQ1/AHuT8rUbLJpD1/yOvFelsG3I45NxzH1U/THyRk o+pvw/aGLjm+WvJC8izbZf/S3oTr6dBdTNzA06XN4qiztXEniP7LVGXdoUEdolrY dekbT+AHAgMBAAECggEALDy+VRX3rANa7F86rc+w7gp/tvbWctTRTGlioAoex8Si WONXqivH0XnYo2gzydGv9+74iqh6eZ9ITqNVGlM4tY528zrkwiMQc7SEDcZIbInq O5NIw0hHMAS5uh3lWglVe/7krJ8gIA2g6j37NxZGz6nANXNdRBU5bTxuqdWA1Ddh EDDCTnYNVgLz+jg82Xv3cdiEStRtkiI0o+xGE2fq7yDu4HUkWhhKDkOxEVIkTXBL tGAHIVw4ebz9QzgmPAZ7jb2AuzN5CamfWaUsT4RRMpjXk82IWzckJYcxDKzcZS4p 8YyYI3wr270XZfqfRyAkK0xKaNfV+Os7S3MSJ1oN4QKBgQDy0NQf/UgXclSYeQqA f5mq1yZRya7uzBaklGx1JIRInwJO3/ieznerDACocrEXLEpL+ghAYcRKlIjVx2GA qMf9LyLR0Gj9HUVsO5KXbm3lldQGFWTJjqjFnagVYYT1ifiOaqRX4yEBLnOQTJUB s+0f/O5wvevF0DQ3/38VQVrFvQKBgQC92cge92Si7g0i4a/d4Oi403ows0MszUHf IcnqACBbdhr6qF1xhVAC2l6yrhSxz9kl33+UmhFGdiKG0e873gmBpN70ZG8+uJtP KhO1xNcar/RGqrmLFdxmFe/uEfq2NhRhTvf+ymvdKrVTgRulKvvr2on+M3Qd/FFi aElbqvOvEwKBgQDR8d/HfP7NTwx3/QgojKt4PKikRObdEFdvm+me66D5DYs4WY0k +k4b9bfH7crSx3fB84EY8a9/8KfTd54FWWn5rrzDfxiX6awx5dxc1J1uybpWPD81 ywSAQU2olvYYO2BO+0P3vam21MwU8zJPE5wucUpU7tGh6uCLnnzqCuUKXQKBgDjB Slo3ixZKJBMxdOnXurrGPdkhPgu+sNqLt1kFAKdW/2m/u2+ccvbnYTf5YqZlhH0V +4XpKRDvcBLt357+GclwCFb3T2potcVMxueoGMYZo+UcVKuHtYOvOzLonRKryBvv B6RbzzMm+V4lUqZl2zn+8xHTP/tW2t2YX5XP3VmRAoGAa2RQ/dHZdm0StAMjWnEX sDwScMQxXPcxzfVT65lciT7BKN24gjf7P4F5qlZs5jjFfPCIAxAIB8RM67lQ5XwN m+LC5alh5CeO6WTNtniONnMftuG9pmBAZaaMB+07MPO6TFdFsJek+iF4DRWFt5dH LjkY7I3W1tYRI7p7A6BLAoY= -----END PRIVATE KEY-----" target="private_key" />
+          <zeebe:input source="firebase-adminsdk-re23d@camunda-connector-526e0.iam.gserviceaccount.com" target="client_email" />
+          <zeebe:input source="106225938488515698599" target="client_id" />
+        </zeebe:ioMapping>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_1amal4j</bpmn:incoming>
+      <bpmn:outgoing>Flow_0lzeipd</bpmn:outgoing>
+    </bpmn:serviceTask>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="ConnectorTest">
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="179" y="99" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0m3aamh_di" bpmnElement="Event_0m3aamh">
+        <dc:Bounds x="432" y="99" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1y4j2q8_di" bpmnElement="connectorTest">
+        <dc:Bounds x="270" y="77" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_1amal4j_di" bpmnElement="Flow_1amal4j">
+        <di:waypoint x="215" y="117" />
+        <di:waypoint x="270" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0lzeipd_di" bpmnElement="Flow_0lzeipd">
+        <di:waypoint x="370" y="117" />
+        <di:waypoint x="432" y="117" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

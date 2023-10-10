@@ -1,0 +1,89 @@
+{
+  "$schema": "https://unpkg.com/@camunda/zeebe-element-templates-json-schema/resources/schema.json",
+  "name": "Firebase Cloud Messaging",
+  "id": "febf0a0f-5cb0-4956-a496-21be0452ada5",
+  "appliesTo": [
+    "bpmn:Task"
+  ],
+  "groups": [
+    {
+      "id": "serviceAccount",
+      "label": "Service Account"
+    }
+  ],
+  "properties": [
+    {
+      "label": "Type",
+      "group": "serviceAccount",
+      "type": "String",
+      "feel": "optional",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "type"
+      },
+      "constraints": {
+        "notEmpty": true
+      }
+    },    {
+      "label": "Project Id",
+      "group": "serviceAccount",
+      "type": "String",
+      "feel": "optional",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "project_id"
+      },
+      "constraints": {
+        "notEmpty": true
+      }
+    },    {
+      "label": "Private Key Id",
+      "group": "serviceAccount",
+      "type": "String",
+      "feel": "optional",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "private_key_id"
+      },
+      "constraints": {
+        "notEmpty": true
+      }
+    },    {
+      "label": "Private Key",
+      "group": "serviceAccount",
+      "type": "String",
+      "feel": "optional",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "private_key"
+      },
+      "constraints": {
+        "notEmpty": true
+      }
+    },    {
+      "label": "Client Email",
+      "group": "serviceAccount",
+      "type": "String",
+      "feel": "optional",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "client_email"
+      },
+      "constraints": {
+        "notEmpty": true
+      }
+    },    {
+      "label": "Client Id",
+      "group": "serviceAccount",
+      "type": "String",
+      "feel": "optional",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "client_id"
+      },
+      "constraints": {
+        "notEmpty": true
+      }
+    }
+  ]
+}
