@@ -23,7 +23,20 @@ public class FirebaseConfiguration {
         return this.fbm;
     }
 
+    public static InputStream getFileInputStream() throws IOException {
+        // Create a File object with the file path
+        File file = new File("src/test/resources/firebase-service-account.json");
+
+        // Create a FileInputStream to read from the file
+        FileInputStream fileInputStream = new FileInputStream(file);
+
+        // Wrap the FileInputStream with an InputStream (if needed)
+
+        return (InputStream) fileInputStream;
+    }
+
     GoogleCredentials googleCredentials() throws IOException {
+        String test = new String(getFileInputStream().readAllBytes(), StandardCharsets.UTF_8);
         try {
             return GoogleCredentials.fromStream(inputStream);
         }
@@ -37,7 +50,7 @@ public class FirebaseConfiguration {
                     .setCredentials(credentials)
                     .build();
             return FirebaseApp.initializeApp(options);
-        }else {
+        } else {
             return FirebaseApp.getApps().get(0);
         }
     }

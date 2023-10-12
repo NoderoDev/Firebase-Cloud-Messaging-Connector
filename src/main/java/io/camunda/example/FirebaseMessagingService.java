@@ -3,6 +3,7 @@ package io.camunda.example;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.google.firebase.messaging.FirebaseMessagingException;
 import com.google.firebase.messaging.Message;
+import com.google.firebase.messaging.Notification;
 
 public class FirebaseMessagingService {
 
@@ -12,14 +13,27 @@ public class FirebaseMessagingService {
         this.fcm = fcm;
     }
 
-    public String execute() throws FirebaseMessagingException {
-        Message msg = Message.builder()
-                .setToken("d-RBQz67QUqfcvT9EfOINt:APA91bEHLxqQX-EZf9tbLdfhnqX1u-6DxhdT11KMszxAbUbLD87WAEP6rD9ZJQcJsTZ_odikKzwwR6_BEY3A8lYAP-vWQ8P_XuZFCaJ0bIsSwFTXqXoJR3QqaksEgX2TlX57s-us0IF3")
-                .putData("body", "Please work")
-                .build();
+    public void execute(String messageType, String title, String data, String tokens, String topic) throws FirebaseMessagingException {
 
-        String id = fcm.send(msg);
+        if (messageType.equals("topic")) {
+            Message msg = Message.builder()
+                    .setTopic(topic)
+                    .putData("title", title)
+                    .putData("body", data)
+                    .build();
+            fcm.send(msg);
+        } else {
+            String[] tokenArray = tokens.split(",");
 
-        return id;
+            for (String token : tokenArray) {
+                Message msg = Message.builder()
+                        .setToken(token)
+                        .putData("title", title)
+                        .putData("body", data)
+                        .build();
+
+                fcm.send(msg);
+            }
+        }
     }
 }
