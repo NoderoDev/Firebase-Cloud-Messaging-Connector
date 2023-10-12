@@ -26,18 +26,17 @@ public class FirebaseConfiguration {
             return GoogleCredentials.fromStream(inputStream);
         }
         catch (Exception ex) {
-            throw new RuntimeException(ex);
+            throw new RuntimeException("Wrong Firebase credential format. Unable to create connection");
         }
     }
     FirebaseApp firebaseApp(GoogleCredentials credentials) {
-        if (FirebaseApp.getApps().isEmpty()){
-            FirebaseOptions options = FirebaseOptions.builder()
-                    .setCredentials(credentials)
-                    .build();
-            return FirebaseApp.initializeApp(options);
-        } else {
-            return FirebaseApp.getApps().get(0);
+        FirebaseOptions options = FirebaseOptions.builder()
+                .setCredentials(credentials)
+                .build();
+        if (!FirebaseApp.getApps().isEmpty()) {
+            FirebaseApp.getApps().get(0).delete();
         }
+        return FirebaseApp.initializeApp(options);
     }
     FirebaseMessaging firebaseMessaging(FirebaseApp firebaseApp) {
         return FirebaseMessaging.getInstance(firebaseApp);

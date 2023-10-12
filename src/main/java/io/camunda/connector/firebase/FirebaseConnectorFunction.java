@@ -46,7 +46,8 @@ public class FirebaseConnectorFunction implements OutboundConnectorFunction {
 
         } catch (Exception e){
             LOGGER.error(e.getMessage());
-            throw new RuntimeException(e);
+            throw new RuntimeException(e.getMessage());
+//            throw new RuntimeException(e);
         }
     }
 
