@@ -119,7 +119,7 @@
     },
     {
       "type": "Hidden",
-      "value": "connectorTest",
+      "value": "firebaseConnector",
       "binding": {
         "type": "zeebe:taskDefinition:type"
       }
