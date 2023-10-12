@@ -27,6 +27,6 @@ public class FirebaseConnectorFunctionTest {
         //then
         assertThat(result)
                 .isInstanceOf(RuntimeException.class)
-                .hasMessageContaining("Wrong Firebase credential format. Unable to create connection");
+                .hasMessageContaining("Wrong Firebase credentials format. Unable to create connection");
     }
 }

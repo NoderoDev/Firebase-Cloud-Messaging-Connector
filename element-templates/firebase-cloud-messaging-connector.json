@@ -21,10 +21,10 @@
   ],
   "properties": [
     {
-      "label": "Service Account Json",
+      "label": "Service Account",
       "group": "serviceAccount",
       "type": "Text",
-      "feel": "optional",
+      "description": "Please paste the JSON created in your Firebase Console",
       "binding": {
         "type": "zeebe:input",
         "name": "serviceAccount"

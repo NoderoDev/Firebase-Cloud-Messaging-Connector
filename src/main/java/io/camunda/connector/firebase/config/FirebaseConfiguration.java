@@ -26,7 +26,7 @@ public class FirebaseConfiguration {
             return GoogleCredentials.fromStream(inputStream);
         }
         catch (Exception ex) {
-            throw new RuntimeException("Wrong Firebase credential format. Unable to create connection");
+            throw new RuntimeException("Wrong Firebase credentials format. Unable to create connection");
         }
     }
     FirebaseApp firebaseApp(GoogleCredentials credentials) {
