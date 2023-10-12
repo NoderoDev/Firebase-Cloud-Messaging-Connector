@@ -3,7 +3,6 @@ package io.camunda.connector.firebase;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.catchThrowable;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import io.camunda.connector.api.error.ConnectorException;
 import io.camunda.connector.firebase.dto.ConnectorRequestDto;
 import io.camunda.connector.test.outbound.OutboundConnectorContextBuilder;
 import org.junit.jupiter.api.Test;
