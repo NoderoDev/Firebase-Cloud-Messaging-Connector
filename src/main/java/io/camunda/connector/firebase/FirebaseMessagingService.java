@@ -1,8 +1,11 @@
-package io.camunda.example;
+package io.camunda.connector.firebase;
 
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.google.firebase.messaging.FirebaseMessagingException;
 import com.google.firebase.messaging.Message;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class FirebaseMessagingService {
 
@@ -22,6 +25,7 @@ public class FirebaseMessagingService {
                     .build();
             fcm.send(msg);
         } else {
+            List<Message> messageList = new ArrayList<>();
             String[] tokenArray = tokens.split(",");
 
             for (String token : tokenArray) {
@@ -30,9 +34,9 @@ public class FirebaseMessagingService {
                         .putData("title", title)
                         .putData("body", data)
                         .build();
-
-                fcm.send(msg);
+                messageList.add(msg);
             }
+            fcm.sendEach(messageList);
         }
     }
 }

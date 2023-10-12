@@ -1,4 +1,4 @@
-package io.camunda.example.config;
+package io.camunda.connector.firebase.config;
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 
@@ -21,25 +21,12 @@ public class FirebaseConfiguration {
         return this.fbm;
     }
 
-    public static InputStream getFileInputStream() throws IOException {
-        // Create a File object with the file path
-        File file = new File("src/test/resources/firebase-service-account.json");
-
-        // Create a FileInputStream to read from the file
-        FileInputStream fileInputStream = new FileInputStream(file);
-
-        // Wrap the FileInputStream with an InputStream (if needed)
-
-        return (InputStream) fileInputStream;
-    }
-
-    GoogleCredentials googleCredentials() throws IOException {
-        String test = new String(getFileInputStream().readAllBytes(), StandardCharsets.UTF_8);
+    GoogleCredentials googleCredentials(){
         try {
             return GoogleCredentials.fromStream(inputStream);
         }
-        catch (IOException ioe) {
-            throw new RuntimeException(ioe);
+        catch (Exception ex) {
+            throw new RuntimeException(ex);
         }
     }
     FirebaseApp firebaseApp(GoogleCredentials credentials) {

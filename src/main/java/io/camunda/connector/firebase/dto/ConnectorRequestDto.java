@@ -1,4 +1,4 @@
-package io.camunda.example.dto;
+package io.camunda.connector.firebase.dto;
 
 import java.io.Serializable;
 import java.util.Objects;

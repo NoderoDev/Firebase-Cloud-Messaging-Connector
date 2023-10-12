@@ -1,1 +1,1 @@
-io.camunda.example.FirebaseConnectorFunction
+io.camunda.connector.firebase.FirebaseConnectorFunction

@@ -255,7 +255,7 @@
         <artifactId>element-template-generator-maven-plugin</artifactId>
         <configuration>
           <connectorClasses>
-            <connectorClass>io.camunda.example.FirebaseConnectorFunction</connectorClass>
+            <connectorClass>io.camunda.connector.firebase.FirebaseConnectorFunction</connectorClass>
           </connectorClasses>
         </configuration>
       </plugin>
