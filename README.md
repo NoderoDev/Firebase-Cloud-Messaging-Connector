@@ -1,100 +1,17 @@
-> A Connector template for new C8 outbound connector
->
-> To use this template update the following resources to match the name of your connector:
->
-> * [README](./README.md) (title, description)
-> * [Element Template](./element-templates/firebase-cloud-messaging-connector.json)
-> * [POM](./pom.xml) (artifact name, id, description)
-> * [Connector Function](src/main/java/io/camunda/connector/firebase/MyConnectorFunction.java) (rename, implement, update `OutboundConnector` annotation)
-> * [Service Provider Interface (SPI)](./src/main/resources/META-INF/services/io.camunda.connector.api.outbound.OutboundConnectorFunction) (rename)
->
-> ...and delete this hint.
-> 
-> Read more about [creating Connectors](https://docs.camunda.io/docs/components/connectors/custom-built-connectors/connector-sdk/#creating-a-custom-connector)
->
-> Check out the [Connectors SDK](https://github.com/camunda/connector-sdk)
+# Firebase Cloud Messaging Connector Usage Guide
 
+## Introduction
+This README provides a comprehensive guide on how to use your connector. Follow the steps below to get started.
 
-# Connector Template
+## Prerequisites
+Before you begin, make sure you have generated a private key for the Firebase Admin SDK. You can do this in the Firebase console under Project Settings -> Service Accounts.
 
-Camunda Outbound Connector Template
+## Steps to Use the Connector
 
-Emulates a simple outbound connector function that takes a message and echoes it back.
+1. **Copy the JSON Object**: After generating your private key, you will receive a JSON object. Copy this object into the 'Service Account' input field in your connector setup.
 
-The function will throw an exception if your message starts with `fail`. This can be used to test error handling.
+2. **Choose Cloud Messaging Type**: In your connector settings, select the type of Cloud Messaging you want to use. This could be 'Topic Messaging' or 'Token Messaging', depending on your needs. You can send messages to multiple Tokens by adding multiple Tokens seperated by a comma.
 
-## Build
+3. **Add Data**: Finally, add the data that you want to send via Cloud Messaging. This could be notification data, data messages, or both.
 
-You can package the Connector by running the following command:
-
-```bash
-mvn clean package
-```
-
-This will create the following artifacts:
-
-- A thin JAR without dependencies.
-- An fat JAR containing all dependencies, potentially shaded to avoid classpath conflicts. This will not include the SDK artifacts since those are in scope `provided` and will be brought along by the respective Connector Runtime executing the Connector.
-
-### Shading dependencies
-
-You can use the `maven-shade-plugin` defined in the [Maven configuration](./pom.xml) to relocate common dependencies
-that are used in other Connectors and the [Connector Runtime](https://github.com/camunda-community-hub/spring-zeebe/tree/master/connector-runtime#building-connector-runtime-bundles).
-This helps to avoid classpath conflicts when the Connector is executed. 
-
-Use the `relocations` configuration in the Maven Shade plugin to define the dependencies that should be shaded.
-The [Maven Shade documentation](https://maven.apache.org/plugins/maven-shade-plugin/examples/class-relocation.html) 
-provides more details on relocations.
-
-## API
-
-### Input
-
-| Name     | Description      | Example           | Notes                                                                      |
-|----------|------------------|-------------------|----------------------------------------------------------------------------|
-| username | Mock username    | `alice`           | Has no effect on the function call outcome.                                |
-| token    | Mock token value | `my-secret-token` | Has no effect on the function call outcome.                                |
-| message  | Mock message     | `Hello World`     | Echoed back in the output. If starts with 'fail', an error will be thrown. |
-
-### Output
-
-```json
-{
-  "result": {
-    "myProperty": "Message received: ..."
-  }
-}
-```
-
-### Error codes
-
-| Code | Description                                |
-|------|--------------------------------------------|
-| FAIL | Message starts with 'fail' (ignoring case) |
-
-## Test locally
-
-Run unit tests
-
-```bash
-mvn clean verify
-```
-
-### Test with local runtime
-
-Use the [Camunda Connector Runtime](https://github.com/camunda-community-hub/spring-zeebe/tree/master/connector-runtime#building-connector-runtime-bundles) to run your function as a local Java application.
-
-In your IDE you can also simply navigate to the `LocalContainerRuntime` class in test scope and run it via your IDE.
-If necessary, you can adjust `application.properties` in test scope.
-
-## Element Template
-
-The element template for this sample connector is generated automatically based on the connector
-input class using the [Element Template Generator](https://github.com/camunda/connectors/tree/main/connector-sdk/element-template-generator).
-The generation is embedded in the Maven build and can be triggered by running `mvn clean package`.
-
-It is not mandatory to generate the element template for your connector and you can also create it manually.
-However, the generator provides a convenient way to create the template and keep it in sync with the connector input class
-and empowers you to prototype and iterate quickly.
-
-The generated element template can be found in [element-templates/template-connector.json](./element-templates/firebase-cloud-messaging-connector.json).
+And that's it! You have successfully set up and used your connector. If you encounter any issues or need further assistance, feel free to reach out for support.
