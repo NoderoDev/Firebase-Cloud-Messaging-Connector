@@ -1,6 +1,5 @@
 package io.camunda.connector.firebase.config;
 import java.io.*;
-import java.nio.charset.StandardCharsets;
 
 import com.google.auth.oauth2.GoogleCredentials;
 import com.google.firebase.FirebaseApp;
