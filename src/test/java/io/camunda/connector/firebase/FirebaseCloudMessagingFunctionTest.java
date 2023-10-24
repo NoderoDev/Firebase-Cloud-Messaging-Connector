@@ -7,14 +7,14 @@ import io.camunda.connector.firebase.dto.ConnectorRequestDto;
 import io.camunda.connector.test.outbound.OutboundConnectorContextBuilder;
 import org.junit.jupiter.api.Test;
 
-public class FirebaseConnectorFunctionTest {
+public class FirebaseCloudMessagingFunctionTest {
 
     ObjectMapper objectMapper = new ObjectMapper();
 
     @Test
     void shouldThrowErrorWithIncorrectCredentialFormat() throws Exception {
         //given
-        FirebaseConnectorFunction firebaseConnectorFunction = new FirebaseConnectorFunction();
+        FirebaseCloudMessagingFunction firebaseConnectorFunction = new FirebaseCloudMessagingFunction();
         ConnectorRequestDto connectorRequestDto = new ConnectorRequestDto();
         connectorRequestDto.setServiceAccount("Wrong info");
         var context = OutboundConnectorContextBuilder.create()

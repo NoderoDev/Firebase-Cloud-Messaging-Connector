@@ -10,16 +10,15 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.*;
-import java.nio.charset.StandardCharsets;
 import java.util.regex.Matcher;
 
 @OutboundConnector(
-        name = "FIREBASECONNECTOR",
+        name = "FIREBASECLOUDMESSAGING",
         inputVariables = {"serviceAccount", "messageType", "tokens", "topic", "messageTitle", "messageData"},
-        type = "firebaseConnector")
-public class FirebaseConnectorFunction implements OutboundConnectorFunction {
-    public FirebaseConnectorFunction() {}
-    private static final Logger LOGGER = LoggerFactory.getLogger(FirebaseConnectorFunction.class);
+        type = "firebaseCloudMessaging")
+public class FirebaseCloudMessagingFunction implements OutboundConnectorFunction {
+    public FirebaseCloudMessagingFunction() {}
+    private static final Logger LOGGER = LoggerFactory.getLogger(FirebaseCloudMessagingFunction.class);
 
     @Override
     public Object execute(OutboundConnectorContext context) {

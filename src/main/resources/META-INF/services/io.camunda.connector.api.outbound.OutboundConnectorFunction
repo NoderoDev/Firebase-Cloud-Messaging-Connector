@@ -1,1 +1,1 @@
-io.camunda.connector.firebase.FirebaseConnectorFunction
+io.camunda.connector.firebase.FirebaseCloudMessagingFunction

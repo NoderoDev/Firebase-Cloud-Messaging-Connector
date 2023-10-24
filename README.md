@@ -4,7 +4,12 @@
 This README provides a comprehensive guide on how to use your connector. Follow the steps below to get started.
 
 ## Prerequisites
-Before you begin, make sure you have generated a private key for the Firebase Admin SDK. You can do this in the Firebase console under Project Settings -> Service Accounts.
+1. **Create a Firebase project and add a web app**.
+2. **Generate a new private key**: Go to Settings -> Service Accounts in the Firebase console and press ‘Generate new private key’.
+3. **Download the ServiceAccount.json file**: Click on ‘Generate key’. This will download a service account JSON file.
+
+Please remember to securely store the JSON file containing the key. When authorizing via a service account, you have two choices for providing the credentials to your application. You can either set the `GOOGLE_APPLICATION_CREDENTIALS` environment variable, or you can explicitly pass the path to the service account key in code. The first option is more secure and is strongly recommended.
+
 
 ## Steps to Use the Connector
 
