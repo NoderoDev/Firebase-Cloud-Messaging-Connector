@@ -10,6 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.util.regex.Matcher;
 
 @OutboundConnector(
@@ -37,8 +38,8 @@ public class FirebaseConnectorFunction implements OutboundConnectorFunction {
 
             //Run Firebase Messaging Logic
             service.execute(requestVariables.getMessageType(),
-                    requestVariables.getMessageTitle(),
-                    requestVariables.getMessageData(),
+                    concatString(requestVariables.getMessageTitle(),200),
+                    concatString(requestVariables.getMessageData(),1000),
                     requestVariables.getTokens(),
                     requestVariables.getTopic());
 
@@ -47,17 +48,20 @@ public class FirebaseConnectorFunction implements OutboundConnectorFunction {
         } catch (Exception e){
             LOGGER.error(e.getMessage());
             throw new RuntimeException(e.getMessage());
-//            throw new RuntimeException(e);
         }
     }
 
-    InputStream converter(String serviceAccount){
-
+    private InputStream converter(String serviceAccount){
         String unEscaped = StringEscapeUtils.unescapeJava(serviceAccount);
         String credentials = unEscaped.replaceAll(Matcher.quoteReplacement("\\n"), Matcher.quoteReplacement("\n"));
-
         return new ByteArrayInputStream(credentials.getBytes());
     }
 
-
+    private String concatString (String input, Integer length){
+        if (input.length() > length) {
+            return input.substring(0, length);
+        } else {
+            return input;
+        }
+    }
 }

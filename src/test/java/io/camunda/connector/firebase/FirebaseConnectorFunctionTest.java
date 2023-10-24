@@ -12,7 +12,7 @@ public class FirebaseConnectorFunctionTest {
     ObjectMapper objectMapper = new ObjectMapper();
 
     @Test
-    void shouldThrowErrorWithIncorrectCredentialFormat() throws Exception{
+    void shouldThrowErrorWithIncorrectCredentialFormat() throws Exception {
         //given
         FirebaseConnectorFunction firebaseConnectorFunction = new FirebaseConnectorFunction();
         ConnectorRequestDto connectorRequestDto = new ConnectorRequestDto();

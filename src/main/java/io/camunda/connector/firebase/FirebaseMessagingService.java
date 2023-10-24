@@ -3,6 +3,7 @@ package io.camunda.connector.firebase;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.google.firebase.messaging.FirebaseMessagingException;
 import com.google.firebase.messaging.Message;
+import com.google.firebase.messaging.Notification;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,9 +20,11 @@ public class FirebaseMessagingService {
 
         if (messageType.equals("topic")) {
             Message msg = Message.builder()
+                    .setNotification(Notification.builder()
+                            .setBody(data)
+                            .setTitle(title)
+                            .build())
                     .setTopic(topic)
-                    .putData("title", title)
-                    .putData("body", data)
                     .build();
             fcm.send(msg);
         } else {
@@ -30,9 +33,11 @@ public class FirebaseMessagingService {
 
             for (String token : tokenArray) {
                 Message msg = Message.builder()
+                        .setNotification(Notification.builder()
+                                .setBody(data)
+                                .setTitle(title)
+                                .build())
                         .setToken(token)
-                        .putData("title", title)
-                        .putData("body", data)
                         .build();
                 messageList.add(msg);
             }
