@@ -1,4 +1,4 @@
-package io.camunda.connector.firebase.dto;
+package com.nodero.connector.dto;
 
 import java.io.Serializable;
 import java.util.Objects;

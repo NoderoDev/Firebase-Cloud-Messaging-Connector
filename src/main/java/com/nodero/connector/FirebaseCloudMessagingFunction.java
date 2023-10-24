@@ -1,10 +1,10 @@
-package io.camunda.connector.firebase;
+package com.nodero.connector;
 
+import com.nodero.connector.dto.ConnectorRequestDto;
 import io.camunda.connector.api.annotation.OutboundConnector;
 import io.camunda.connector.api.outbound.OutboundConnectorContext;
 import io.camunda.connector.api.outbound.OutboundConnectorFunction;
-import io.camunda.connector.firebase.dto.ConnectorRequestDto;
-import io.camunda.connector.firebase.config.FirebaseConfiguration;
+import com.nodero.connector.config.FirebaseConfiguration;
 import org.apache.commons.text.StringEscapeUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

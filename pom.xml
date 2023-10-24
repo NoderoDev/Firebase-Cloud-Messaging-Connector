@@ -4,9 +4,9 @@
   <modelVersion>4.0.0</modelVersion>
 
   <name>firebase-cloud-messaging-connector</name>
-  <description>Camunda Connector Template</description>
-  <groupId>io.camunda.connector</groupId>
-  <artifactId>connector-template</artifactId>
+  <description>Firebase Cloud Messaging Connector</description>
+  <groupId>com.nodero.connector</groupId>
+  <artifactId>firebase-cloud-messaging</artifactId>
   <packaging>jar</packaging>
   <version>0.1.0-SNAPSHOT</version>
 
@@ -255,7 +255,7 @@
         <artifactId>element-template-generator-maven-plugin</artifactId>
         <configuration>
           <connectorClasses>
-            <connectorClass>io.camunda.connector.firebase.FirebaseCloudMessagingFunction</connectorClass>
+            <connectorClass>com.nodero.connector.FirebaseCloudMessagingFunction</connectorClass>
           </connectorClasses>
         </configuration>
       </plugin>

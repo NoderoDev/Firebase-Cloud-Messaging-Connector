@@ -1,4 +1,4 @@
-package io.camunda.connector.firebase;
+package com.nodero.connector;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,9 +1,9 @@
-package io.camunda.connector.firebase;
+package com.nodero.connector;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.catchThrowable;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import io.camunda.connector.firebase.dto.ConnectorRequestDto;
+import com.nodero.connector.dto.ConnectorRequestDto;
 import io.camunda.connector.test.outbound.OutboundConnectorContextBuilder;
 import org.junit.jupiter.api.Test;
 

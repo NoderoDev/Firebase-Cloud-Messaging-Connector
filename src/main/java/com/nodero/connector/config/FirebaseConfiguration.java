@@ -1,4 +1,4 @@
-package io.camunda.connector.firebase.config;
+package com.nodero.connector.config;
 import java.io.*;
 
 import com.google.auth.oauth2.GoogleCredentials;

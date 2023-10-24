@@ -1,4 +1,4 @@
-package io.camunda.connector.firebase;
+package com.nodero.connector;
 
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.google.firebase.messaging.FirebaseMessagingException;

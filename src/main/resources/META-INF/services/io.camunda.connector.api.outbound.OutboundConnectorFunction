@@ -1,1 +1,1 @@
-io.camunda.connector.firebase.FirebaseCloudMessagingFunction
+com.nodero.connector.FirebaseCloudMessagingFunction
