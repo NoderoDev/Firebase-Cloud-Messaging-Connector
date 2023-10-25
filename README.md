@@ -20,3 +20,13 @@ Please remember to securely store the JSON file containing the key. When authori
 3. **Add Data**: Finally, add the data that you want to send via Cloud Messaging. This could be notification data, data messages, or both.
 
 And that's it! You have successfully set up and used your connector. If you encounter any issues or need further assistance, feel free to reach out for support.
+
+## Runtime
+
+Build a jar file with dependencies
+
+```bash
+mvn clean package
+```
+After building the jar file this can be set up to work with both SaaS or Self-Managed instances of Camunda.   
+Follow the steps outlined in the [Camunda Documentation](https://docs.camunda.io/docs/guides/host-custom-connectors/)
